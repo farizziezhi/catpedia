@@ -34,10 +34,6 @@
   "devDependencies": {
     "@adonisjs/eslint-config": "^2.0.0",
     "@adonisjs/prettier-config": "^1.4.4",
-    "@japa/api-client": "^3.1.0",
-    "@japa/assert": "^4.0.1",
-    "@japa/plugin-adonisjs": "^4.0.0",
-    "@japa/runner": "^4.2.0",
     "eslint": "^9.26.0",
     "prettier": "^3.5.3"
   },
@@ -48,6 +44,10 @@
     "@adonisjs/cors": "^2.2.1",
     "@adonisjs/lucid": "^21.6.1",
     "@adonisjs/tsconfig": "^1.4.0",
+    "@japa/api-client": "^3.1.0",
+    "@japa/assert": "^4.0.1",
+    "@japa/plugin-adonisjs": "^4.0.0",
+    "@japa/runner": "^4.2.0",
     "@swc/core": "1.11.24",
     "@types/node": "^22.15.18",
     "@vinejs/vine": "^3.0.1",
