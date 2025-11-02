@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catpedia - Ensiklopedia Kucing Terlengkap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        orange: '#f97316',
+                        pink: '#ec4899'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="text-3xl animate-bounce-slow">🐱</div>
+                    <div>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Catpedia</span>
+                        <div class="text-xs text-gray-500">AI-Powered Cat Encyclopedia</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Beranda
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#identifier" class="text-gray-600 hover:text-primary transition-all duration-300 font-medium relative group">
+                        AI Identifier
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#gallery" class="text-gray-600 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Galeri
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10"></div>
+        <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float">🐾</div>
+        <div class="absolute bottom-20 right-10 text-8xl opacity-10 animate-float" style="animation-delay: -3s;">🐱</div>
+        
+        <div class="relative container mx-auto px-4 py-24">
+            <div class="text-center max-w-5xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                        <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                            Jelajahi Dunia
+                        </span>
+                        <br>
+                        <span class="bg-gradient-to-r from-orange to-pink bg-clip-text text-transparent animate-pulse-slow">
+                            Kucing 🐱
+                        </span>
+                    </h1>
+                    <div class="w-32 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-8"></div>
+                </div>
+                
+                <p class="text-xl md:text-2xl mb-12 text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Temukan berbagai jenis kucing dari seluruh dunia dengan 
+                    <span class="font-semibold text-primary">AI breed identifier</span>, 
+                    informasi lengkap, dan gambar berkualitas tinggi yang akan memukau Anda.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                    <button onclick="scrollToIdentifier()" class="group bg-gradient-to-r from-primary to-secondary text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105">
+                        <span class="flex items-center justify-center">
+                            🤖 <span class="ml-2">Identifikasi dengan AI</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <button onclick="scrollToGallery()" class="group border-2 border-primary text-primary px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105">
+                        <span class="flex items-center justify-center">
+                            🔍 <span class="ml-2">Jelajahi Galeri</span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
+                        <div class="text-4xl mb-4">🤖</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">AI Recognition</h3>
+                        <p class="text-gray-600">Identifikasi jenis kucing dengan teknologi AI terdepan</p>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
+                        <div class="text-4xl mb-4">📚</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Database Lengkap</h3>
+                        <p class="text-gray-600">Informasi detail dari 67+ jenis kucing di dunia</p>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
+                        <div class="text-4xl mb-4">🖼️</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Galeri HD</h3>
+                        <p class="text-gray-600">Gambar berkualitas tinggi dan autentik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Identifier Section -->
+    <section id="identifier" class="py-20 bg-gradient-to-br from-white to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-gradient-to-r from-primary/10 to-secondary/10 px-6 py-3 rounded-full mb-6">
+                    <span class="text-2xl mr-2">🤖</span>
+                    <span class="font-semibold text-primary">AI Technology</span>
+                </div>
+                <h2 class="text-5xl font-bold text-gray-800 mb-6">Identifikasi Jenis Kucing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Upload foto kucing Anda dan biarkan AI menentukan jenisnya dengan akurasi tinggi menggunakan teknologi machine learning terdepan
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
+                    <!-- Upload Area -->
+                    <div id="uploadArea" class="relative border-3 border-dashed border-gray-300 rounded-2xl p-12 text-center hover:border-primary transition-all duration-300 cursor-pointer group bg-gradient-to-br from-gray-50 to-white">
+                        <input type="file" id="imageInput" accept="image/*" class="hidden">
+                        
+                        <div id="uploadContent" class="space-y-4">
+                            <div class="relative">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-semibold text-gray-700 mb-2">Upload Foto Kucing</p>
+                                <p class="text-gray-500 mb-4">Klik atau drag & drop gambar kucing di sini</p>
+                                <div class="inline-flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm text-gray-600">
+                                    <span class="mr-2">📁</span>
+                                    Format: JPG, PNG, WEBP (Max 5MB)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="imagePreview" class="hidden space-y-6">
+                            <div class="relative inline-block">
+                                <img id="previewImg" class="max-w-full h-80 object-cover rounded-2xl shadow-lg">
+                                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                                    ✨ Siap dianalisis
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-lg">Klik "Identifikasi" untuk mengetahui jenis kucing dengan AI</p>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button id="identifyBtn" onclick="identifyBreed()" class="hidden w-full mt-8 bg-gradient-to-r from-primary to-secondary text-white py-5 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-[1.02]">
+                        <span class="flex items-center justify-center">
+                            🔍 <span class="ml-2">Identifikasi Jenis Kucing</span>
+                        </span>
+                    </button>
+
+                    <!-- Loading -->
+                    <div id="identifyLoading" class="hidden text-center mt-8">
+                        <div class="inline-flex items-center bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl shadow-lg">
+                            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+                            <span class="font-medium">AI sedang menganalisis gambar...</span>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="identifyResults" class="hidden mt-8"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-gradient-to-r from-accent/10 to-primary/10 px-6 py-3 rounded-full mb-6">
+                    <span class="text-2xl mr-2">🖼️</span>
+                    <span class="font-semibold text-accent">Gallery Collection</span>
+                </div>
+                <h2 class="text-5xl font-bold text-gray-800 mb-6">Galeri Kucing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Koleksi lengkap berbagai jenis kucing dengan informasi detail dan gambar autentik dari seluruh dunia
+                </p>
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="text-center py-16">
+                <div class="inline-flex items-center bg-white px-10 py-6 rounded-2xl shadow-xl">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mr-4"></div>
+                    <span class="text-gray-700 font-medium text-lg">Memuat koleksi kucing...</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div id="controls" class="hidden mb-12">
+                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full">
+                                <span class="text-gray-700 font-medium">
+                                    Menampilkan <span id="showingRange" class="font-bold text-primary"></span> 
+                                    dari <span id="totalBreeds" class="font-bold text-primary"></span> jenis kucing
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <button id="prevBtn" onclick="changePage(-1)" 
+                                    class="flex items-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:shadow-lg disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                Sebelumnya
+                            </button>
+                            <div id="pageInfo" class="px-6 py-4 bg-gray-100 rounded-xl font-semibold text-gray-700 min-w-[100px] text-center"></div>
+                            <button id="nextBtn" onclick="changePage(1)" 
+                                    class="flex items-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:shadow-lg disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300">
+                                Selanjutnya
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="catGallery" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="text-3xl">🐱</div>
+                        <div>
+                            <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Catpedia</span>
+                            <div class="text-sm text-gray-400">AI-Powered Cat Encyclopedia</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed max-w-md">
+                        Ensiklopedia kucing terlengkap dengan teknologi AI untuk identifikasi breed, 
+                        informasi akurat, dan galeri berkualitas tinggi.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-6 text-lg">Fitur Unggulan</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center"><span class="mr-2">🤖</span> AI Breed Identifier</li>
+                        <li class="flex items-center"><span class="mr-2">📚</span> Database Lengkap</li>
+                        <li class="flex items-center"><span class="mr-2">🖼️</span> Galeri HD</li>
+                        <li class="flex items-center"><span class="mr-2">📱</span> Responsive Design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-6 text-lg">Teknologi</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <p>Powered by:</p>
+                        <div class="space-y-2">
+                            <a href="https://thecatapi.com" target="_blank" class="block text-accent hover:text-blue-300 transition-colors">
+                                🔗 TheCatAPI
+                            </a>
+                            <a href="https://nyckel.com" target="_blank" class="block text-accent hover:text-blue-300 transition-colors">
+                                🧠 Nyckel AI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 Catpedia. Dibuat dengan <span class="text-red-400">❤️</span> untuk pecinta kucing di seluruh dunia.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Detail Kucing -->
+    <div id="breedModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button onclick="closeBreedModal()" class="absolute top-6 right-6 bg-white/80 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center hover:bg-white transition-all z-10">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allBreeds = [];
+        let currentPage = 1;
+        const itemsPerPage = 12;
+        let selectedFile = null;
+
+        function scrollToGallery() {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToIdentifier() {
+            document.getElementById('identifier').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // File upload handling
+        document.getElementById('uploadArea').addEventListener('click', () => {
+            document.getElementById('imageInput').click();
+        });
+
+        document.getElementById('imageInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                selectedFile = file;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('uploadContent').classList.add('hidden');
+                    document.getElementById('imagePreview').classList.remove('hidden');
+                    document.getElementById('identifyBtn').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Drag and drop
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('border-primary', 'bg-primary/5');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('border-primary', 'bg-primary/5');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('border-primary', 'bg-primary/5');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                document.getElementById('imageInput').files = e.dataTransfer.files;
+                document.getElementById('imageInput').dispatchEvent(new Event('change'));
+            }
+        });
+
+        async function identifyBreed() {
+            if (!selectedFile) return;
+
+            document.getElementById('identifyBtn').classList.add('hidden');
+            document.getElementById('identifyLoading').classList.remove('hidden');
+            document.getElementById('identifyResults').classList.add('hidden');
+
+            try {
+                const formData = new FormData();
+                formData.append('image', selectedFile);
+
+                const response = await fetch('/api/identify-breed', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    displayIdentifyResults(result);
+                } else {
+                    throw new Error(result.error || 'Identification failed');
+                }
+            } catch (error) {
+                document.getElementById('identifyResults').innerHTML = `
+                    <div class="bg-red-50 border border-red-200 rounded-2xl p-8 text-center">
+                        <div class="text-4xl mb-4">❌</div>
+                        <p class="font-medium text-red-700 text-lg mb-2">Gagal mengidentifikasi</p>
+                        <p class="text-red-600">${error.message}</p>
+                    </div>
+                `;
+                document.getElementById('identifyResults').classList.remove('hidden');
+            } finally {
+                document.getElementById('identifyLoading').classList.add('hidden');
+                document.getElementById('identifyBtn').classList.remove('hidden');
+            }
+        }
+
+        function displayIdentifyResults(result) {
+            const resultsDiv = document.getElementById('identifyResults');
+            
+            if (result.labelName) {
+                resultsDiv.innerHTML = `
+                    <div class="bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-2xl p-8 text-center">
+                        <div class="text-6xl mb-6">🎯</div>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">Hasil Identifikasi</h3>
+                        <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-2xl mb-6 shadow-lg">
+                            <p class="text-2xl font-bold mb-2">${result.labelName}</p>
+                            <div class="flex items-center justify-center">
+                                <div class="bg-white/20 px-4 py-2 rounded-full">
+                                    <span class="text-sm font-medium">Confidence: ${(result.confidence * 100).toFixed(1)}%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="searchBreedInGallery('${result.labelName}')" class="bg-gradient-to-r from-accent to-blue-500 text-white px-8 py-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold">
+                            🔍 Lihat di Galeri
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultsDiv.innerHTML = `
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center">
+                        <div class="text-4xl mb-4">🤔</div>
+                        <p class="text-gray-600 text-lg mb-2">Tidak dapat mengidentifikasi jenis kucing</p>
+                        <p class="text-gray-500">Coba gunakan gambar yang lebih jelas atau foto kucing yang berbeda</p>
+                    </div>
+                `;
+            }
+            
+            resultsDiv.classList.remove('hidden');
+        }
+
+        function searchBreedInGallery(breedName) {
+            scrollToGallery();
+            setTimeout(() => {
+                // Simple visual feedback
+                const gallery = document.getElementById('catGallery');
+                gallery.style.opacity = '0.5';
+                setTimeout(() => {
+                    gallery.style.opacity = '1';
+                    alert(`🔍 Mencari ${breedName} di galeri...`);
+                }, 500);
+            }, 500);
+        }
+
+        async function loadBreeds() {
+            try {
+                const breedsResponse = await fetch('/api/breeds');
+                
+                if (!breedsResponse.ok) {
+                    throw new Error('Backend error');
+                }
+                
+                allBreeds = await breedsResponse.json();
+                
+                document.getElementById('totalBreeds').textContent = allBreeds.length;
+                document.getElementById('controls').classList.remove('hidden');
+                document.getElementById('catGallery').classList.remove('hidden');
+                
+                displayCurrentPage();
+
+            } catch (error) {
+                console.error('Error loading breeds:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="text-center py-16">
+                        <div class="bg-red-50 border border-red-200 text-red-700 px-8 py-6 rounded-2xl max-w-md mx-auto">
+                            <div class="text-4xl mb-4">❌</div>
+                            <p class="font-medium text-lg">Gagal memuat data kucing</p>
+                        </div>
+                    </div>
+                `;
+            } finally {
+                document.getElementById('loading').classList.add('hidden');
+            }
+        }
+
+        function displayCurrentPage() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentBreeds = allBreeds.slice(startIndex, endIndex);
+            
+            const totalPages = Math.ceil(allBreeds.length / itemsPerPage);
+            
+            document.getElementById('showingRange').textContent = 
+                `${startIndex + 1}-${Math.min(endIndex, allBreeds.length)}`;
+            document.getElementById('pageInfo').textContent = `${currentPage} / ${totalPages}`;
+            
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            
+            const gallery = document.getElementById('catGallery');
+            gallery.innerHTML = '';
+            
+            currentBreeds.forEach((breed, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group transform hover:-translate-y-2';
+                card.style.animationDelay = `${index * 100}ms`;
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden">
+                        ${breed.image?.url ? 
+                            `<img src="${breed.image.url}" alt="${breed.name}" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">` :
+                            `<div class="w-full h-56 bg-gradient-to-br from-gray-100 via-blue-50 to-indigo-100 flex items-center justify-center">
+                                <span class="text-gray-400 text-5xl">🐱</span>
+                            </div>`
+                        }
+                        <div class="absolute top-4 left-4 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                            ${breed.name}
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors">${breed.name}</h3>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
+                                <span class="w-6 text-center">🌍</span>
+                                <span class="font-medium">${breed.origin}</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
+                                <span class="w-6 text-center">⏱️</span>
+                                <span class="font-medium">${breed.life_span} tahun</span>
+                            </div>
+                        </div>
+                        
+                        ${breed.temperament ? 
+                            `<div class="mb-4">
+                                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Temperamen</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">${breed.temperament}</p>
+                            </div>` : ''
+                        }
+                        
+                        <div class="pt-4 border-t border-gray-100">
+                            <button onclick="showBreedDetail('${breed.id}')" class="w-full bg-gradient-to-r from-primary/10 to-secondary/10 text-primary py-3 rounded-xl font-medium hover:from-primary hover:to-secondary hover:text-white transition-all duration-300">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                gallery.appendChild(card);
+            });
+        }
+
+        function changePage(direction) {
+            const totalPages = Math.ceil(allBreeds.length / itemsPerPage);
+            const newPage = currentPage + direction;
+            
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                displayCurrentPage();
+                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showBreedDetail(breedId) {
+            const breed = allBreeds.find(b => b.id === breedId);
+            if (!breed) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="relative">
+                    ${breed.image?.url ? 
+                        `<img src="${breed.image.url}" alt="${breed.name}" class="w-full h-80 object-cover rounded-t-3xl">` :
+                        `<div class="w-full h-80 bg-gradient-to-br from-gray-100 via-blue-50 to-indigo-100 flex items-center justify-center rounded-t-3xl">
+                            <span class="text-gray-400 text-6xl">🐱</span>
+                        </div>`
+                    }
+                    <div class="absolute bottom-6 left-6 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold">${breed.name}</h2>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Informasi Dasar</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center bg-gray-50 p-4 rounded-xl">
+                                    <span class="text-2xl mr-4">🌍</span>
+                                    <div>
+                                        <p class="font-medium text-gray-800">Asal</p>
+                                        <p class="text-gray-600">${breed.origin}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center bg-gray-50 p-4 rounded-xl">
+                                    <span class="text-2xl mr-4">⏱️</span>
+                                    <div>
+                                        <p class="font-medium text-gray-800">Rentang Hidup</p>
+                                        <p class="text-gray-600">${breed.life_span} tahun</p>
+                                    </div>
+                                </div>
+                                ${breed.weight?.metric ? 
+                                    `<div class="flex items-center bg-gray-50 p-4 rounded-xl">
+                                        <span class="text-2xl mr-4">⚖️</span>
+                                        <div>
+                                            <p class="font-medium text-gray-800">Berat</p>
+                                            <p class="text-gray-600">${breed.weight.metric} kg</p>
+                                        </div>
+                                    </div>` : ''
+                                }
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Karakteristik</h3>
+                            ${breed.temperament ? 
+                                `<div class="bg-blue-50 p-4 rounded-xl">
+                                    <p class="font-medium text-blue-800 mb-2">😸 Temperamen</p>
+                                    <p class="text-blue-700">${breed.temperament}</p>
+                                </div>` : ''
+                            }
+                            ${breed.energy_level ? 
+                                `<div class="bg-green-50 p-4 rounded-xl">
+                                    <p class="font-medium text-green-800 mb-2">⚡ Level Energi</p>
+                                    <div class="flex items-center">
+                                        ${Array.from({length: 5}, (_, i) => 
+                                            `<span class="text-lg ${i < breed.energy_level ? 'text-green-500' : 'text-gray-300'}">⭐</span>`
+                                        ).join('')}
+                                        <span class="ml-2 text-green-700">${breed.energy_level}/5</span>
+                                    </div>
+                                </div>` : ''
+                            }
+                            ${breed.affection_level ? 
+                                `<div class="bg-pink-50 p-4 rounded-xl">
+                                    <p class="font-medium text-pink-800 mb-2">❤️ Level Kasih Sayang</p>
+                                    <div class="flex items-center">
+                                        ${Array.from({length: 5}, (_, i) => 
+                                            `<span class="text-lg ${i < breed.affection_level ? 'text-pink-500' : 'text-gray-300'}">❤️</span>`
+                                        ).join('')}
+                                        <span class="ml-2 text-pink-700">${breed.affection_level}/5</span>
+                                    </div>
+                                </div>` : ''
+                            }
+                        </div>
+                    </div>
+                    
+                    ${breed.description ? 
+                        `<div class="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-2xl mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">📝 Deskripsi</h3>
+                            <p class="text-gray-700 leading-relaxed">${breed.description}</p>
+                        </div>` : ''
+                    }
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        ${breed.wikipedia_url ? 
+                            `<a href="${breed.wikipedia_url}" target="_blank" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-xl font-semibold text-center hover:shadow-lg transition-all duration-300">
+                                📖 Baca di Wikipedia
+                            </a>` : ''
+                        }
+                        <button onclick="closeBreedModal()" class="flex-1 bg-gray-100 text-gray-700 py-4 px-6 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300">
+                            Tutup
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('breedModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBreedModal() {
+            document.getElementById('breedModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('breedModal').addEventListener('click', (e) => {
+            if (e.target.id === 'breedModal') {
+                closeBreedModal();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBreedModal();
+            }
+        });
+
+        loadBreeds();
+    </script>
+</body>
+</html>
